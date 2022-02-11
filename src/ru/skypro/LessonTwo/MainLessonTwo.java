@@ -28,120 +28,139 @@ public class MainLessonTwo {
                 new Slytherin("Грегори", "Гойл", "Слизерин", 72, 34, 25, 41, 30, 17, 66)
         };
 
-        Hogwarts[] students = {
-                new Gryffindor("Гарри", "Поттер", "Гриффиндор", 80, 56, 75, 80, 65),
-                new Gryffindor("Гермиона", "Грейнджер", "Гриффиндор", 90, 65, 80, 64, 75),
-                new Gryffindor("Рон", "Уизли", "Гриффиндор", 45, 56, 55, 68, 88),
-                new Hufflepuff("Захария", "Смит", "Пуффендуй", 52, 65, 85, 65, 80),
-                new Hufflepuff("Седрик", "Диггори", "Пуффендуй", 65, 80, 55, 90, 75),
-                new Hufflepuff("Джастин", "Финч-Флетчли", "Пуффендуй", 84, 35, 90, 25, 74),
-                new Ravenclaw("Чжоу", "Чанг", "Когтевран", 56, 85, 54, 73, 21, 49),
-                new Ravenclaw("Падма", "Патил", "Когтевран", 85, 76, 41, 87, 97, 48),
-                new Ravenclaw("Маркус", "Белби", "Когтевран", 72, 41, 34, 88, 33, 63),
-                new Slytherin("Драко", "Малфой", "Слизерин", 53, 68, 85, 74, 98, 87, 86),
-                new Slytherin("Грэхэм", "Малфой", "Монтегю", 65, 24, 38, 47, 85, 91, 46),
-                new Slytherin("Грегори", "Гойл", "Слизерин", 72, 34, 25, 41, 30, 17, 66)
-
-        };
-        printAboutStudent(students[1]);
-        compareFacultyStudents(gryffindors);
-        compareFacultyStudents(hufflepuffs);
-        compareFacultyStudents(ravenclaws);
-        compareFacultyStudents(slytherins);
-        compareStudents(students);
+        printAboutStudent(gryffindors[1]);
+        compareFacultyStudents(gryffindors[0], gryffindors[2]);
+        compareFacultyStudents(hufflepuffs[0], hufflepuffs[1]);
+        compareFacultyStudents(ravenclaws[1], ravenclaws[2]);
+        compareFacultyStudents(slytherins[1], slytherins[0]);
+        compareStudents(ravenclaws[1], gryffindors[2]);
     }
 
     public static void printAboutStudent(Hogwarts student) {
         System.out.println(student);
     }
 
-    public static void compareFacultyStudents(Gryffindor[] gryffindors) {
-        for (int i = 0; i < gryffindors.length; i++) {
-            for (int j = gryffindors.length - 1; j >= 0; j--) {
-                if (gryffindors[i] != null && gryffindors[i].getNobility() > gryffindors[j].getNobility()) {
-                    System.out.println("У " + gryffindors[i].getName() + " больше благородства, чем у " + gryffindors[j].getName());
-                }
-                if (gryffindors[i] != null && gryffindors[i].getHonor() < gryffindors[j].getHonor()) {
-                    System.out.println("У " + gryffindors[j].getName() + " больше чести, чем у " + gryffindors[i].getName());
-                }
-                if (gryffindors[i] != null && gryffindors[i].getBravery() < gryffindors[j].getBravery()) {
-                    System.out.println(gryffindors[j].getName() + " храбрее " + gryffindors[i].getName());
-                }
-            }
+    public static void compareFacultyStudents(Gryffindor gryffindor1, Gryffindor gryffindor2) {
+        if (gryffindor1 == null || gryffindor2 == null) {
+            System.out.println("Сравнение невозможно");
+            return;
+        }
+        if (gryffindor1.getNobility() > gryffindor2.getNobility()) {
+            System.out.println("У " + gryffindor1.getName() + " больше благородства, чем у " + gryffindor2.getName());
+        } else {
+            System.out.println("У " + gryffindor2.getName() + " больше благородства, чем у " + gryffindor1.getName());
+        }
+        if (gryffindor1.getHonor() > gryffindor2.getHonor()) {
+            System.out.println("У " + gryffindor1.getName() + " больше чести, чем у " + gryffindor2.getName());
+        } else {
+            System.out.println("У " + gryffindor2.getName() + " больше чести, чем у " + gryffindor1.getName());
+        }
+        if (gryffindor1.getBravery() > gryffindor2.getBravery()) {
+            System.out.println(gryffindor1.getName() + " храбрее " + gryffindor2.getName());
+        } else {
+            System.out.println(gryffindor2.getName() + " храбрее " + gryffindor1.getName());
         }
         System.out.println("=================");
     }
 
-    public static void compareFacultyStudents(Hufflepuff[] hufflepuffs) {
-        for (int i = 0; i < hufflepuffs.length; i++) {
-            for (int j = hufflepuffs.length - 1; j >= 0; j--) {
-                if (hufflepuffs[i] != null && hufflepuffs[i].getHardworking() > hufflepuffs[j].getHardworking()) {
-                    System.out.println(hufflepuffs[i].getName() + " трудолюбивее " + hufflepuffs[j].getName());
-                }
-                if (hufflepuffs[i] != null && hufflepuffs[i].getLoyal() < hufflepuffs[j].getLoyal()) {
-                    System.out.println(hufflepuffs[j].getName() + " более верный, чем " + hufflepuffs[i].getName());
-                }
-                if (hufflepuffs[i] != null && hufflepuffs[i].getHonest() < hufflepuffs[j].getHonest()) {
-                    System.out.println(hufflepuffs[j].getName() + " честнее " + hufflepuffs[i].getName());
-                }
-            }
+    public static void compareFacultyStudents(Hufflepuff hufflepuff1, Hufflepuff hufflepuff2) {
+        if (hufflepuff1 == null || hufflepuff2 == null) {
+            System.out.println("Сравнение невозможно");
+            return;
+        }
+        if (hufflepuff1.getHardworking() > hufflepuff2.getHardworking()) {
+            System.out.println(hufflepuff1.getName() + " трудолюбивее " + hufflepuff2.getName());
+        } else {
+            System.out.println(hufflepuff2.getName() + " трудолюбивее " + hufflepuff1.getName());
+        }
+        if (hufflepuff1.getLoyal() > hufflepuff2.getLoyal()) {
+            System.out.println(hufflepuff1.getName() + " более верный, чем " + hufflepuff2.getName());
+        } else {
+            System.out.println(hufflepuff2.getName() + " более верный, чем " + hufflepuff1.getName());
+        }
+        if (hufflepuff1.getHonest() > hufflepuff2.getHonest()) {
+            System.out.println(hufflepuff1.getName() + " честнее " + hufflepuff2.getName());
+        } else {
+            System.out.println(hufflepuff2.getName() + " честнее " + hufflepuff1.getName());
         }
         System.out.println("=================");
     }
 
-    public static void compareFacultyStudents(Ravenclaw[] ravenclaws) {
-        for (int i = 0; i < ravenclaws.length; i++) {
-            for (int j = ravenclaws.length - 1; j >= 0; j--) {
-                if (ravenclaws[i] != null && ravenclaws[i].getSmart() > ravenclaws[j].getSmart()) {
-                    System.out.println(ravenclaws[i].getName() + " умнее " + ravenclaws[j].getName());
-                }
-                if (ravenclaws[i] != null && ravenclaws[i].getWise() < ravenclaws[j].getWise()) {
-                    System.out.println(ravenclaws[j].getName() + " мудрее " + ravenclaws[i].getName());
-                }
-                if (ravenclaws[i] != null && ravenclaws[i].getWitty() < ravenclaws[j].getWitty()) {
-                    System.out.println(ravenclaws[j].getName() + " остроумнее " + ravenclaws[i].getName());
-                }
-                if (ravenclaws[i] != null && ravenclaws[i].getCreativity() < ravenclaws[j].getCreativity()) {
-                    System.out.println(ravenclaws[j].getName() + " больше полон творчества, чем " + ravenclaws[i].getName());
-                }
-            }
+    public static void compareFacultyStudents(Ravenclaw ravenclaw1, Ravenclaw ravenclaw2) {
+        if (ravenclaw1 == null || ravenclaw2 == null) {
+            System.out.println("Сравнение невозможно");
+            return;
+        }
+        if (ravenclaw1.getSmart() > ravenclaw2.getSmart()) {
+            System.out.println(ravenclaw1.getName() + " умнее " + ravenclaw2.getName());
+        } else {
+            System.out.println(ravenclaw2.getName() + " умнее " + ravenclaw1.getName());
+        }
+        if (ravenclaw1.getWise() > ravenclaw2.getWise()) {
+            System.out.println(ravenclaw1.getName() + " мудрее " + ravenclaw2.getName());
+        } else {
+            System.out.println(ravenclaw2.getName() + " мудрее " + ravenclaw1.getName());
+        }
+        if (ravenclaw1.getWitty() > ravenclaw2.getWitty()) {
+            System.out.println(ravenclaw1.getName() + " остроумнее " + ravenclaw2.getName());
+        } else {
+            System.out.println(ravenclaw2.getName() + " остроумнее " + ravenclaw1.getName());
+        }
+        if (ravenclaw1.getCreativity() > ravenclaw2.getCreativity()) {
+            System.out.println(ravenclaw1.getName() + " больше полон творчества, чем " + ravenclaw2.getName());
+        } else {
+            System.out.println(ravenclaw2.getName() + " больше полон творчества, чем " + ravenclaw1.getName());
         }
         System.out.println("=================");
     }
 
-    public static void compareFacultyStudents(Slytherin[] slytherins) {
-        for (int i = 0; i < slytherins.length; i++) {
-            for (int j = slytherins.length - 1; j >= 0; j--) {
-                if (slytherins[i] != null && slytherins[i].getCunning() > slytherins[j].getCunning()) {
-                    System.out.println(slytherins[i].getName() + " хитрее " + slytherins[j].getName());
-                }
-                if (slytherins[i] != null && slytherins[i].getDetermination() < slytherins[j].getDetermination()) {
-                    System.out.println(slytherins[j].getName() + " решительнее " + slytherins[i].getName());
-                }
-                if (slytherins[i] != null && slytherins[i].getAmbition() < slytherins[j].getAmbition()) {
-                    System.out.println(slytherins[j].getName() + " амбициознее " + slytherins[i].getName());
-                }
-                if (slytherins[i] != null && slytherins[i].getResourcefulness() < slytherins[j].getResourcefulness()) {
-                    System.out.println(slytherins[j].getName() + " находчивее " + slytherins[i].getName());
-                }
-                if (slytherins[i] != null && slytherins[i].getThirstForPower() < slytherins[j].getThirstForPower()) {
-                    System.out.println(slytherins[j].getName() + " больше жаждит власти, чем " + slytherins[i].getName());
-                }
-            }
+    public static void compareFacultyStudents(Slytherin slytherin1, Slytherin slytherin2) {
+        if (slytherin1 == null || slytherin2 == null) {
+            System.out.println("Сравнение невозможно");
+            return;
+        }
+        if (slytherin1.getCunning() > slytherin2.getCunning()) {
+            System.out.println(slytherin1.getName() + " хитрее " + slytherin2.getName());
+        } else {
+            System.out.println(slytherin2.getName() + " хитрее " + slytherin1.getName());
+        }
+        if (slytherin1.getDetermination() > slytherin2.getDetermination()) {
+            System.out.println(slytherin1.getName() + " решительнее " + slytherin2.getName());
+        } else {
+            System.out.println(slytherin2.getName() + " решительнее " + slytherin1.getName());
+        }
+        if (slytherin1.getAmbition() < slytherin2.getAmbition()) {
+            System.out.println(slytherin1.getName() + " амбициознее " + slytherin2.getName());
+        } else {
+            System.out.println(slytherin2.getName() + " амбициознее " + slytherin1.getName());
+        }
+        if (slytherin1.getResourcefulness() > slytherin2.getResourcefulness()) {
+            System.out.println(slytherin1.getName() + " находчивее " + slytherin2.getName());
+        } else {
+            System.out.println(slytherin2.getName() + " находчивее " + slytherin1.getName());
+        }
+        if (slytherin1.getThirstForPower() > slytherin2.getThirstForPower()) {
+            System.out.println(slytherin1.getName() + " больше жаждит власти, чем " + slytherin2.getName());
+        } else {
+            System.out.println(slytherin2.getName() + " больше жаждит власти, чем " + slytherin1.getName());
         }
         System.out.println("=================");
     }
 
-    public static void compareStudents(Hogwarts[] students) {
-        for (int i = 0; i < students.length; i++) {
-            for (int j = students.length - 1; j >= 0; j--) {
-                if (students[i] != null && students[i].getConjure() > students[j].getConjure()) {
-                    System.out.println(students[i].getName() + " обладает большей мощьностью магии, чем " + students[j].getName());
-                }
-                if (students[i] != null && students[i].getTransgress() > students[j].getTransgress()) {
-                    System.out.println(students[i].getName() + " имеет большую способность трансгрессировать, чем " + students[j].getName());
-                }
-            }
+    public static void compareStudents(Hogwarts student1, Hogwarts student2) {
+        if (student1 == null || student2 == null) {
+            System.out.println("Сравнение невозможно");
+            return;
+        }
+        if (student1.getConjure() > student2.getConjure()) {
+            System.out.println(student1.getName() + " обладает большей мощьностью магии, чем " + student2.getName());
+        } else {
+            System.out.println(student2.getName() + " обладает большей мощьностью магии, чем " + student1.getName());
+        }
+        if (student1.getTransgress() > student2.getTransgress()) {
+            System.out.println(student1.getName() + " имеет большую способность трансгрессировать, чем " + student2.getName());
+        } else {
+            System.out.println(student2.getName() + " имеет большую способность трансгрессировать, чем " + student1.getName());
         }
         System.out.println("=================");
     }
