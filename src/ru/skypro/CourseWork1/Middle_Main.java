@@ -1,6 +1,7 @@
 package ru.skypro.CourseWork1;
 
-import static CoursWorkOne.Min.addEmployee;
+
+import static ru.skypro.CourseWork1.Min.addEmployee;
 
 public class Middle_Main {
     public static void printIndexingSalary(Employee[] employees) {
